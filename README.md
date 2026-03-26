@@ -2,13 +2,13 @@
 
 ##  Project Overview
 
-This project analyzes Spotify track data to explore relationships between audio features and song popularity, as well as trends in music production over time.
+This project analyzes Spotify track data to explore relationships between audio features and song popularity, along with trends in music production over time. The goal is to extract meaningful insights from a large real-world dataset and understand patterns in modern music.
 
 ---
 
 ##  Problem Statement
 
-Understanding what makes a song popular is complex due to multiple interacting audio features. This project aims to uncover patterns and relationships between features such as energy, loudness, acousticness, and popularity.
+Understanding what makes a song popular is complex due to multiple interacting audio features. This project aims to uncover patterns and relationships between features such as energy, loudness, acousticness, and popularity using exploratory data analysis.
 
 ---
 
@@ -16,17 +16,22 @@ Understanding what makes a song popular is complex due to multiple interacting a
 
 * Source: Spotify Tracks Dataset (Kaggle)
 * Link: https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks?select=tracks.csv
-* Records: ~586,000 songs
-* Features include:
+* Size: ~586,000 tracks
+* Time Range: 1920–2020
 
-  * Popularity (0–100)
-  * Energy
-  * Loudness
-  * Danceability
-  * Acousticness
-  * Release Date
-  * Tempo
-  * Valence
+### Features include:
+
+* Popularity (0–100)
+* Danceability
+* Energy
+* Loudness
+* Acousticness
+* Instrumentalness
+* Valence
+* Tempo
+* Release Date
+
+>  Note: Dataset (~111MB) is not included in this repository due to GitHub size limits.
 
 ---
 
@@ -45,8 +50,8 @@ Understanding what makes a song popular is complex due to multiple interacting a
 ### 1. Data Cleaning
 
 * Converted `release_date` to datetime format
+* Handled invalid/missing values using safe conversion
 * Created `duration` feature from milliseconds
-* Handled missing values safely
 
 ### 2. Exploratory Data Analysis
 
@@ -55,8 +60,10 @@ Understanding what makes a song popular is complex due to multiple interacting a
 
 ### 3. Feature Relationships
 
-* Energy vs Loudness (strong positive correlation)
-* Acousticness vs Popularity (negative trend)
+* Analyzed relationships between:
+
+  * Energy vs Loudness
+  * Acousticness vs Popularity
 
 ### 4. Time-Based Analysis
 
@@ -68,11 +75,13 @@ Understanding what makes a song popular is complex due to multiple interacting a
 ##  Key Insights
 
 *  Energy and loudness are strongly positively correlated (~0.76)
+*  Higher energy tracks consistently exhibit higher loudness
 *  Acoustic songs tend to be less popular
-*  Danceability and valence show moderate correlation
-*  Extremely high acousticness tracks rarely achieve high popularity
+*  Tracks with very high acousticness rarely achieve high popularity
+*  Danceability and valence show moderate positive correlation
 *  Music production increased significantly after 1980
 *  Peak song releases occurred between 2000–2020
+*  Dataset is skewed toward modern music, which may influence analysis
 
 ---
 
@@ -96,22 +105,71 @@ Understanding what makes a song popular is complex due to multiple interacting a
 
 ---
 
+##  How to Run
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/varshaponnaganti7/spotify-data-analysis.git
+   ```
+
+2. Navigate to the project folder:
+
+   ```bash
+   cd spotify-data-analysis
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Open the notebook:
+
+   ```bash
+   jupyter notebook spotify_analysis.ipynb
+   ```
+
+---
+
+##  Project Structure
+
+```
+spotify-data-analysis/
+│
+├── images/
+│   ├── heatmap.png
+│   ├── energy_loudness.png
+│   ├── acoustic_popularity.png
+│   └── year_distribution.png
+│
+├── spotify_analysis.ipynb
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
+
+---
+
 ##  Impact
 
 * Helps understand key features influencing music characteristics
-* Useful for building recommendation systems
-* Provides foundation for predicting song popularity
+* Provides insights useful for music recommendation systems
+* Forms a foundation for predictive modeling of song popularity
 
 ---
 
 ##  Future Work
 
-* Build machine learning model to predict popularity
-* Perform genre-based analysis
-* Create interactive dashboards (Streamlit / Power BI)
+* Build a machine learning model to predict song popularity
+* Perform genre-based or artist-based analysis
+* Develop an interactive dashboard (Streamlit / Power BI)
 
 ---
 
 ##  Conclusion
 
-This project demonstrates how data analysis can uncover meaningful insights in music trends, helping both producers and analysts understand what drives modern music.
+This project demonstrates how data analysis can uncover meaningful insights in music trends using real-world data. It highlights the importance of feature relationships and temporal patterns in understanding modern music.
+
+---
